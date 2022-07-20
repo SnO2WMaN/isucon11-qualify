@@ -5,7 +5,18 @@ includes = ["*.nix"]
 [formatter.dprint]
 command = "dprint"
 options = ["fmt"]
-includes = ["*.json", "*.toml", "*.md"]
+includes = [
+  "*.json",
+  "*.toml",
+  "*.md",
+  "*.js",
+  "*.jsx",
+  "*.ts",
+  "*.tsx",
+  "*.cjs",
+  "*.mjs",
+]
 excludes = [
-  "./benchmark",
+  "webapp/frontend/**/*",
+  "webapp/public/**/*",
 ]

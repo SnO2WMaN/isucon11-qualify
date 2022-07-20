@@ -1,0 +1,13 @@
+export const sessionName = "isucondition_nodejs";
+export const conditionLimit = 20;
+export const frontendContentsPath = "../public";
+export const jiaJWTSigningKeyPath = "../ec256-public.pem";
+export const defaultIconFilePath = "../NoImage.jpg";
+export const defaultJIAServiceUrl = "http://localhost:5000";
+export const mysqlErrNumDuplicateEntry = 1062;
+export const conditionLevelInfo = "info";
+export const conditionLevelWarning = "warning";
+export const conditionLevelCritical = "critical";
+export const scoreConditionLevelInfo = 3;
+export const scoreConditionLevelWarning = 2;
+export const scoreConditionLevelCritical = 1;
