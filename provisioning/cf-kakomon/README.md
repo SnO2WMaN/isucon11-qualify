@@ -6,7 +6,7 @@ isucon11 予選の過去問環境を AWS 上に構築するための CloudFormat
 
 1. 事前に EC2 KeyPair の作成してください
 2. CloudFormation より cf.yaml を利用してスタックを作成してください
-    * パラメータに手順1で作成した KeyPair 名を指定
+   - パラメータに手順1で作成した KeyPair 名を指定
 3. CloudFormation により作成される EC2 インスタンスには、手順1で作成した秘密鍵を利用して `ubuntu` ユーザでログイン可能です
 
 ## ベンチ実行手順

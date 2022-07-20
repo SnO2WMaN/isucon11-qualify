@@ -17,19 +17,19 @@
 ISUCON11 予選ではウェブアプリケーションのログインに JWT を利用しています。
 JWT を生成・検証するための公開鍵・秘密鍵はそれぞれ以下に配置されています。
 
-* bench/key/ec256-private.pem
-* bench/key/ec256-public.pem
-* webapp/ec256-public.pem (bench/key/ec256-public.pemのコピー)
-* extra/jiaapi-mock/ec256-private.pem (bench/key/ec256-private.pemのコピー)
+- bench/key/ec256-private.pem
+- bench/key/ec256-public.pem
+- webapp/ec256-public.pem (bench/key/ec256-public.pemのコピー)
+- extra/jiaapi-mock/ec256-private.pem (bench/key/ec256-private.pemのコピー)
 
 ## ISUCON11 予選のインスタンスタイプ
 
-* 競技者 VM * 3
-    * InstanceType: c5.large
-    * VolumeType: gp3 (20GB)
-* ベンチ VM * 1
-    * InstanceType: c4.xlarge
-    * VolumeType: gp3 (20GB)
+- 競技者 VM * 3
+  - InstanceType: c5.large
+  - VolumeType: gp3 (20GB)
+- ベンチ VM * 1
+  - InstanceType: c4.xlarge
+  - VolumeType: gp3 (20GB)
 
 ## AWS 上での過去問環境の構築方法
 

@@ -2,7 +2,6 @@
 
 ![ISUCONDITIONロゴ](https://s3-ap-northeast-1.amazonaws.com/hackmd-jp1/uploads/upload_f7b1f89768906f3a6d8280f4814af567.png)
 
-
 ## ISUCONDITION とは
 
 **"ISU とつくる新しい明日"**
@@ -24,11 +23,11 @@ ISUCONDITION はこうした人々のニーズに応えるサービスとして�
 - **JIA**: Japan ISU Association の略。この世界において日本の ISU を取りまとめる団体。すべての ISU に固有の JIA ISU ID を割り当てて管理を行っている。
 - **コンディション**: ISU からのメッセージやその時の ISU の状態に関する情報。
 - **コンディションレベル**: コンディション内の `is_dirty`、`is_overweight`、`is_broken` という 3 つの情報から決まる ISU の状態。それぞれの情報は、問題が発生している場合に `true` となる。以下の 3 つのレベルが存在する。
-    - **Info**: 一切、問題が発生していない状態。
-    - **Warning**: 1〜2 つの問題が発生している状態。
-    - **Critical**: 3 つの問題が発生している状態。
+  - **Info**: 一切、問題が発生していない状態。
+  - **Warning**: 1〜2 つの問題が発生している状態。
+  - **Critical**: 3 つの問題が発生している状態。
 - **グラフ**: 24 時間分の ISU の状態を 1 時間単位で可視化したもの。
-- **トレンド**: 性格ごとに、最新の ISU のコンディションを累計したもの。 
+- **トレンド**: 性格ごとに、最新の ISU のコンディションを累計したもの。
 
 ## ISUCONDITIONの機能とユーザ、ISU、閲覧者について
 
@@ -66,7 +65,7 @@ ISU の登録は以下のような流れになります。
 アプリケーションの動作確認には以下の JIA ISU ID を利用できます。
 
 | JIA ISU ID                           |
-|--------------------------------------|
+| ------------------------------------ |
 | 3a8ae675-3702-45b5-b1eb-1e56e96738ea |
 | 3efff0fa-75bc-4e3c-8c9d-ebfa89ecd15e |
 | f67fcb64-f91c-4e7b-a48d-ddf1164194d0 |
@@ -105,7 +104,7 @@ ISU から送信されるデータには 1 つ以上のコンディションが�
 
 ISU の詳細ページでは、次のことが行えます。
 
-- コンディションの確認（`GET /api/condition/:jia_isu_uuid`） 
+- コンディションの確認（`GET /api/condition/:jia_isu_uuid`）
 - グラフの確認（`GET /api/isu/:jia_isu_uuid/graph`）
 
 #### コンディションの確認
@@ -127,7 +126,7 @@ ISU のコンディションレベルは悪くなる事があります。
 
 トレンドでは ISUCONDITION に登録されているすべての ISU の最新のコンディションレベルが性格ごとにまとまっており、ISU が持つ性格ごとの傾向を見ることができます。ISUCONDITION に興味を持っている閲覧者は、トレンドの変化に注目しています。
 
-## JIA ISU 管理サービス API 
+## JIA ISU 管理サービス API
 
 JIA ISU 管理サービスが提供する API は以下の通りです。
 同様の機能が、開発/検証用に JIA API Mock という名前で提供されています（後述）。
@@ -147,41 +146,37 @@ JIA が管理する ISU をアクティベートするためのエンドポイ�
 
 また、同一の ISU に対する 2 度目以降のリクエストは成功しますが `target_base_url` は 1 度目の内容が利用されます。
 
-+ Request（application/json）
-    + Schema
+- Request（application/json）
+  - Schema
 
-            {
-                "target_base_url": "string",
-                "isu_uuid": "string"
-            }
+        {
+            "target_base_url": "string",
+            "isu_uuid": "string"
+        }
 
+  - Attributes
 
-    + Attributes
+    | Field           | Type   | Required | Description     | Example                                |
+    | --------------- | ------ | -------- | --------------- | -------------------------------------- |
+    | target_base_url | string | true     | ISU のコンディション送信先 | `https://isucondition-1.t.isucon.dev`  |
+    | isu_uuid        | string | true     | JIA ISU ID      | `0694e4d7-dfce-4aec-b7ca-887ac42cfb8f` |
 
-        | Field           | Type   | Required | Description          | Example                                |
-        |-----------------|--------|----------|----------------------|----------------------------------------|
-        | target_base_url | string | true     | ISU のコンディション送信先 | `https://isucondition-1.t.isucon.dev`  |
-        | isu_uuid        | string | true     | JIA ISU ID           | `0694e4d7-dfce-4aec-b7ca-887ac42cfb8f` |
+- Response 202（application/json）
+  - Schema
 
+        {
+            "character": "string"
+        }
 
-+ Response 202（application/json）
-    + Schema
+  - Attributes
 
-            {
-                "character": "string"
-            }
+    | Field     | Type   | Required | Description        | Example |
+    | --------- | ------ | -------- | ------------------ | ------- |
+    | character | string | true     | アクティベートされた ISU の性格 | `いじっぱり` |
 
-    + Attributes
-
-        | Field     | Type   | Required | Description                 | Example    |
-        |-----------|--------|----------|-----------------------------|------------|
-        | character | string | true     | アクティベートされた ISU の性格 | `いじっぱり` |
-
-
-+ Other Responsess
-    + 400（text/plain）
-    + 404（text/plain）
-
+- Other Responsess
+  - 400（text/plain）
+  - 404（text/plain）
 
 ### JIA API Mock について
 

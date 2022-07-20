@@ -1,5 +1,3 @@
-
-
 ## ディレクトリ構成
 
 ```
@@ -16,6 +14,7 @@
 ## 静的ファイルチェック用のデータ更新
 
 gen/assets.goでjsなどのhash値を事前計算したscenario/assets.goを作成する。
+
 ```
-go generate ./gen/assets.go 
+go generate ./gen/assets.go
 ```
