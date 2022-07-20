@@ -1,1 +1,4 @@
 webapp/go/tmp/
+
+.direnv/
+result/
